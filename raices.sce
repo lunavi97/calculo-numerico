@@ -13,3 +13,11 @@ function p = biseccion(a, b, f, E)
         p = a + cotaError
     end
 endfunction
+
+function x = newtonRaphson(x0, f, fd, E)
+    x = x0 - f(x0)/fd(x0)
+    while abs(x - x0) > E
+        x0 = x
+        x = x0 - f(x0)/fd(x0)
+    end
+endfunction
