@@ -21,3 +21,11 @@ function x = newtonRaphson(x0, f, fd, E)
         x = x0 - f(x0)/fd(x0)
     end
 endfunction
+
+function b = puntoFijo(b0, g, E)
+    b = g(b0)
+    while abs(b - b0) > E
+        b0 = b
+        b = g(b0)
+    end
+endfunction
