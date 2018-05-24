@@ -5,3 +5,10 @@ function Y = diferenciasDivididas(X, Y, N)
         end
     end
 endfunction
+
+function y = horner(X, d, x, N)
+    y = d(N + 1)
+    for i = N : -1 : 1
+        y = d(i) + y * (x - X(i))
+    end
+endfunction
