@@ -63,14 +63,14 @@ function N = cantidadDeIteracionesNecesariasNewtonRaphson(a, b, K, L, E)
     m = K/(2*L)
     E0 = b - a
     if m * E0 then
-        N = ceil(log(log(E * m) / log(m * E0)) / log 2)
+        N = ceil(log(log(E * m) / log(m * E0)) / log(2))
     end
 endfunction
 
 function n = cantidadDeIteracionesNecesariasNewtonRaphsonConM(a, b, m, E)
     E0 = b - a
     if m * E0 < 1 then
-        N = ceil(log(log(E * m) / log(m * E0)) / log 2)
+        N = ceil(log(log(E * m) / log(m * E0)) / log(2))
     end
 endfunction
 
