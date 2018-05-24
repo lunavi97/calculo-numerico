@@ -22,6 +22,16 @@ function x = newtonRaphson(x0, f, fd, E)
     end
 endfunction
 
+function x = newtonRaphsonConNIteraciones(x0, f, fd, E, N)
+    i = 1
+    x = x0 - f(x0)/fd(x0)
+    while abs(x - x0) > E & i < N
+        x0 = x
+        x = x0 - f(x0)/fd(x0)
+        i = i + 1
+    end
+endfunction
+
 function b = puntoFijo(b0, g, E)
     b = g(b0)
     while abs(b - b0) > E
