@@ -12,5 +12,5 @@ function N = cantidadDeIteraciones(t0, tf, h)
 endfunction
 
 function h = cantidadDePasos(t0, tf, N)
-    h = (tf - t0) / n
+    h = (tf - t0) / N
 endfunction
