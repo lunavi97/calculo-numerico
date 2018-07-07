@@ -27,6 +27,19 @@ function T = rungeKutta2(t, y, h, f, N)
     end
 endfunction
 
+function T = rungeKutta4(t, y, h, f, N)
+    T = [t y]
+    for i = 1 : N
+        k1 = f(t, y) * h
+        k2 = f(t + h/2, y + k1/2) * h
+        k3 = f(t + h/2, y + k2/2) * h
+        t = t + h
+        k4 = f(t, y + k3)
+        y = y + (k1 + 2 * (k2 + k3) + k4) / 6
+        T = [T; t y]
+    end
+endfunction
+
 function X1 = jacobi(X, A, B, M, N)
     for i = 1 : M
         for j = 1 : N
