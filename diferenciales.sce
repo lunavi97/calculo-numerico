@@ -16,6 +16,17 @@ function T = taylor2(t, y, N, h, f, df)
     end
 endfunction
 
+function T = rungeKutta2(t, y, h, f, N)
+    T = [t y]
+    for i = 1 : N
+        k1 = f(t, y) * h
+        t = t + h
+        k2 = f(t, y - k1) * h
+        y = y + (k1 + k2) / 2
+        T = [T; t y]
+    end
+endfunction
+
 function X1 = jacobi(X, A, B, M, N)
     for i = 1 : M
         for j = 1 : N
