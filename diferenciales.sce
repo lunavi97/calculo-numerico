@@ -22,6 +22,21 @@ function X1 = jacobi(X, A, B, M, N)
     end
 endfunction
 
+function X = seidel(X, A, B, M, N)
+    for i = 1 : M
+        for j = 1 : N
+            S = 0
+            for k = 1 : j - 1
+                S = S + A(j, k) * X(k)
+            end
+            for k = j + 1 : N
+                S = S + A(j, k) * X(k)
+            end
+            X(j) = (B(j) - S) / A(j, j)
+        end
+    end
+endfunction
+
 function N = cantidadDeIteraciones(t0, tf, h)
     N = (tf - t0) / h
 endfunction
