@@ -7,6 +7,15 @@ function T = euler(t, y, f, h, N)
     end
 endfunction
 
+function T = taylor2(t, y, N, h, f, df)
+    T = [t y]
+    for i = 1 : N
+        y = y + h * (f(t, y) + 0.5 * df(t, y) * h)
+        t = t + h
+        T = [T; t y]
+    end
+endfunction
+
 function X1 = jacobi(X, A, B, M, N)
     for i = 1 : M
         for j = 1 : N
